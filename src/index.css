@@ -1,13 +1,147 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background-color: #222;
+  color: white;
+}
+.container {
+  width: 40%;
+  margin: 50px auto;
+  border: 2px solid cadetblue;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.board {
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  position: relative;
+}
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  width: calc(200px / 3);
+  height: calc(200px / 3);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.right-border {
+  border-right: 2px solid cadetblue;
+}
+.bottom-border {
+  border-bottom: 2px solid cadetblue;
+}
+.X-hover:hover::after {
+  content: "X";
+  opacity: 0.4;
+}
+.O-hover:hover::after {
+  content: "O";
+  opacity: 0.4;
+}
+
+.strike {
+  position: absolute;
+  background-color: darkorange;
+}
+.strike-row-1 {
+  position: absolute;
+  background-color: darkorange;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+.strike-row-2 {
+  position: absolute;
+  background-color: darkorange;
+  top: 48%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+.strike-row-3 {
+  position: absolute;
+  background-color: darkorange;
+  top: 82%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+.strike-col-1 {
+  position: absolute;
+  background-color: darkorange;
+  left: 16%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+}
+.strike-col-2 {
+  position: absolute;
+  background-color: darkorange;
+  left: 49%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+}
+.strike-col-3 {
+  position: absolute;
+  background-color: darkorange;
+  left: 83%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+}
+
+.strike-diag-1 {
+  position: absolute;
+  background-color: darkorange;
+  left: 50%;
+  top: -20px;
+  width: 2px;
+  height: 120%;
+  transform-origin: right;
+  transform: rotate(-45deg);
+}
+.strike-diag-2 {
+  position: absolute;
+  background-color: darkorange;
+  left: 50%;
+  top: -22px;
+  width: 2px;
+  height: 120%;
+  transform-origin: left;
+  transform: rotate(45deg);
+}
+.game-over {
+  width: 150px;
+  margin: 15px auto;
+  text-align: center;
+  padding: 10px;
+  border: 2px dashed cadetblue;
+}
+.reset {
+  width: 150px;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background-color: cadetblue;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
